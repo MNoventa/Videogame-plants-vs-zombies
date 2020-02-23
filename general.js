@@ -1,13 +1,3 @@
-// FUNCTIONALITIES:
-  // Collision enemy & enemy
-  // Arrow for ally
-  // Timing for option allies appear
-  // Background allies
-  // Background enemies
-  // Background map
-  // Hover cells
-  // Count enemies death
-
 var size = {
   width: 100,
   height: 100
@@ -210,11 +200,6 @@ function refresh(){
 
   if(frame_count % 300 == 0) {
     add_enemy(frame_count);
-  }
-
-  if(frame_count % 300 == 0) {
-    velocity_refresh = velocity_refresh - 20;
-    console.log(velocity_refresh);
   }
 
   if(frame_opt % 200 == 0) {
