@@ -25,7 +25,7 @@ var allies_opt_selected;
 var map;
 var frame_count = 0;
 var frame_opt = 1;
-var velocity_refresh = 60;
+var velocity_refresh = 40;
 var damage_default = 1000;
 var enemies_information = 0;
 var enemies = {
@@ -42,11 +42,11 @@ var enemies = {
 }
 var allies = {
   option1: {
-    lifetime: damage_default + 700,
+    lifetime: damage_default + 400,
     background: 'rubi-opt-1.png',
   },
   option2: {
-    lifetime: damage_default + 100,
+    lifetime: damage_default,
     background: 'rubi-opt-2.png',
   },
   option3: {
@@ -210,6 +210,11 @@ function refresh(){
 
   if(frame_count % 300 == 0) {
     add_enemy(frame_count);
+  }
+
+  if(frame_count % 300 == 0) {
+    velocity_refresh = velocity_refresh - 20;
+    console.log(velocity_refresh);
   }
 
   if(frame_opt % 200 == 0) {
