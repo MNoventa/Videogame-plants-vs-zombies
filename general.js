@@ -27,6 +27,7 @@ var frame_count = 0;
 var frame_opt = 1;
 var velocity_refresh = 60;
 var damage_default = 1000;
+var enemies_information = 0;
 var enemies = {
   tyson: {
     velocity: 1,
@@ -169,13 +170,15 @@ function refresh(){
           //check if enemy collision with ally
           check_collistion(enemy_complete[i], ally_complete, i, 4);
           //check if enemy collision with arrow
-          check_collistion(enemy_complete[i], arrow_complete, i, 10);
+          check_collistion(enemy_complete[i], arrow_complete, i, 5);
         }else{
           take_damage(enemy_complete[i], i, enemy_complete[i].sprite);
         }
       }else{
         enemy_complete[i].structure.remove();
         enemy_complete.splice(enemy_complete[i], 1);
+        document.querySelector('#gameover').style.display = 'block';
+        velocity_refresh = 0
       }
     }
   }
@@ -248,7 +251,7 @@ function take_damage(element, position, sprite){
     //if still alive
     var damage = damage_default / 95;
     if(sprite == 'arrow'){
-      element.lifetime_substract(damage + 100);
+      element.lifetime_substract(damage + 70);
     }else{
       element.lifetime_substract(damage);
     }
@@ -256,10 +259,11 @@ function take_damage(element, position, sprite){
     //if is dead
     element.structure.remove();
     if(sprite == 'enemy'){
-      console.log(position);
       enemy_complete.splice(position, 1);
       var ally_collapse = ally_complete.find(item => item.id_enemy === element.id);
       ally_collapse.collapse = false;
+      enemies_information++;
+      document.querySelector('#gameinformation > p > span').innerHTML = enemies_information;
     }
     if(sprite == 'ally'){
       ally_complete.splice(position, 1);
