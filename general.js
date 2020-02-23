@@ -208,7 +208,7 @@ function refresh(){
     }
   }
 
-  if(frame_count % 200 == 0) {
+  if(frame_count % 300 == 0) {
     add_enemy(frame_count);
   }
 
@@ -264,6 +264,7 @@ function take_damage(element, position, sprite){
       ally_collapse.collapse = false;
       enemies_information++;
       document.querySelector('#gameinformation > p > span').innerHTML = enemies_information;
+      velocity_refresh = 0;
     }
     if(sprite == 'ally'){
       ally_complete.splice(position, 1);
