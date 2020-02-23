@@ -2,6 +2,7 @@ body{
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
+  background: #000;
 }
 
 .cell{
@@ -103,7 +104,7 @@ body{
 }
 
 body .option-selected{
-  border: 1px solid green;
+  border: 1px solid #08ce08;
   opacity: .5;
 }
 
@@ -130,7 +131,7 @@ body .option-selected{
 }
 
 div#gameover p {
-  color: green;
+  color: #08ce08;
   font-family: 'Press Start 2P';
   font-size: 9vh;
   margin: 0;
@@ -140,16 +141,16 @@ div#gameover p {
 div#gameover a{
   font-size: 4vh;
   margin: 0;
-  color: green;
+  color: #08ce08;
   font-family: 'Press Start 2P';
   text-decoration: none;
 }
 
 #gameinformation{
   text-align: center;
-  color: green;
+  color: #08ce08;
   font-family: 'Press Start 2P';
-  margin-top: 2rem; 
+  margin-top: 2rem;
 }
 
 div#gameover a:hover{
