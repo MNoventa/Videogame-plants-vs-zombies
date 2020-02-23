@@ -5,7 +5,13 @@ body{
 }
 
 .cell{
-  border: 1px solid;
+  border: 1px solid rgba(255,255,255,0.05);
+  cursor: pointer;
+}
+
+.cell:hover{
+  background: #fff;
+  opacity: .07;
 }
 
 .cell,
@@ -29,19 +35,21 @@ body{
   border: 1px solid;
 }
 
-.map{
-  margin: auto;
-  margin-top: 50px;
-  position: relative;
-  overflow: hidden;
-  border: 1px solid;
+.map {
+    margin: auto;
+    margin-top: 50px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid;
+    background-image: url(../img/map.jpg);
+    background-size: cover;
+    background-position: center;
 }
 
 .enemy{
   animation-name: enemyanimation;
   animation-duration: 1s;
   animation-timing-function: linear;
-  animation-delay: 2s;
   animation-iteration-count: infinite;
   animation-direction: alternate;
   background-size: contain;
@@ -61,9 +69,32 @@ body{
 }
 
 .option_zone > div {
-    background: rgb(255, 0, 0);
-    margin: 0 5px;
+    margin: 0 10px;
     display: inline-block;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border: 1px solid;
+    cursor: pointer;
+    opacity: .3;
+}
+
+.option_zone > div.opt-available{
+  opacity: 1;
+}
+
+.option_zone > div.opt-available:hover{
+  animation-name: optionzoneanimation;
+  animation-duration: .5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+@keyframes optionzoneanimation {
+  0%   {transform: translateY(5px);}
+  100%  {transform: translateY(0px);}
 }
 
 .option_zone {
@@ -72,7 +103,8 @@ body{
 }
 
 body .option-selected{
-  background: green;
+  border: 1px solid green;
+  opacity: .5;
 }
 
 .ally{

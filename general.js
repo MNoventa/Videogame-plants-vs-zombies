@@ -24,6 +24,7 @@ var allies_opt_complete = [];
 var allies_opt_selected;
 var map;
 var frame_count = 0;
+var frame_opt = 1;
 var velocity_refresh = 60;
 var damage_default = 1000;
 var enemies = {
@@ -33,9 +34,9 @@ var enemies = {
     background: 'enemy-tyson.png',
   },
   summer: {
-    velocity: 2,
+    velocity: 1,
     lifetime: damage_default,
-    background: 'enemy-tyson.png',
+    background: 'enemy-summer.png',
   }
 }
 var allies = {
@@ -61,10 +62,10 @@ function setup (){
   var option_zone_width = 0;
 
   for(var key in allies){
-    var new_opt_allies = new ally(0, 0, 0, key);
+    var new_opt_allies = new ally(0, 0, 0, key, allies[key].background);
     option_zone.appendChild(new_opt_allies.structure_option);
     //add +10 by the margin between options divs
-    option_zone_width = option_zone_width + size.width + 10;
+    option_zone_width = option_zone_width + size.width + 25;
   }
 
   option_zone.style.width = option_zone_width + 'px';
@@ -98,8 +99,10 @@ function setup (){
         for(var i=1; i<=allies_opt_complete.length; i++){
           var option_class = 'option'+i;
 
-          if(allies_opt_selected != undefined && allies_opt_selected.classList.contains(option_class)){
+          if(allies_opt_selected != undefined && allies_opt_selected.classList.contains(option_class) && allies_opt_selected.classList.contains('opt-available')){
             add_ally(option_class, grid_selected.x, grid_selected.y, allies[option_class].lifetime);
+            rmveclass_option_ally(true);
+            frame_opt = 1;
           }
         }
       }
@@ -147,9 +150,12 @@ function addclass_option_ally(option){
   }
 }
 
-function rmveclass_option_ally(){
+function rmveclass_option_ally(param){
   for(var i=0; i<allies_opt_complete.length; i++){
     allies_opt_complete[i].classList.remove('option-selected');
+    if(param != undefined){
+      allies_opt_complete[i].classList.remove('opt-available');
+    }
   }
 }
 
@@ -203,7 +209,20 @@ function refresh(){
     add_enemy(frame_count);
   }
 
+  if(frame_opt % 200 == 0) {
+    allies_opt_complete[0].classList.add('opt-available');
+  }
+
+  if(frame_opt % 300 == 0) {
+    allies_opt_complete[1].classList.add('opt-available');
+  }
+
+  if(frame_opt % 400 == 0) {
+    allies_opt_complete[2].classList.add('opt-available');
+  }
+
   frame_count++;
+  frame_opt++;
 }
 
 function check_collistion(a, b, position, px_interval){

@@ -56,8 +56,10 @@ function ally(x, y, lifetime, id, background){
   this.sprite = 'ally';
   this.structure_option = document.createElement('div');
   this.structure_option.classList.add(id);
+  this.structure_option.classList.add('opt-available');
   this.structure_option.style.width = size.width + 'px';
   this.structure_option.style.height = size.height + 'px';
+  this.structure_option.style.backgroundImage = "url('img/" + background + "')";
   this.structure = document.createElement('div');
   this.structure.classList.add('ally');
   this.structure.classList.add('ally' + id);
