@@ -111,3 +111,33 @@ body .option-selected{
   background-size: contain;
   background-repeat: no-repeat;
 }
+
+#gameover{
+  background: #000;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  opacity: .9;
+  top: 0;
+  text-align: center;
+}
+
+div#gameover p {
+  color: green;
+  font-family: 'Press Start 2P';
+  font-size: 9vh;
+  margin: 0;
+  margin-bottom: 3rem;
+}
+
+div#gameover a{
+  font-size: 4vh;
+  margin: 0;
+  color: green;
+  font-family: 'Press Start 2P';
+  text-decoration: none;
+}
+
+div#gameover a:hover{
+  opacity: .5;
+}
