@@ -156,3 +156,15 @@ div#gameover a{
 div#gameover a:hover{
   opacity: .5;
 }
+
+footer{
+  color: #08ce08;
+  font-family: 'Press Start 2P';
+  text-align: center;
+  margin-top: 5rem;
+  font-size: .5rem;
+}
+
+footer a{
+  color: #08ce08;
+}
